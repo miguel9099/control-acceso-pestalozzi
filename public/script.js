@@ -9,7 +9,8 @@ fetch('/historial')
   });
 
 // WebSocket para recibir actualizaciones en tiempo real
-const ws = new WebSocket(`ws://${location.host}`);
+const ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}`);
+
 
 ws.onopen = () => console.log('WebSocket conectado');
 
